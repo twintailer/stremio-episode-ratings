@@ -1,0 +1,11 @@
+services:
+  episode-ratings:
+    build: .
+    container_name: stremio-episode-ratings
+    restart: unless-stopped
+    ports:
+      - "7879:7879"
+    environment:
+      - OMDB_API_KEY=c36fbfb1
+      - PORT=7879
+      - CACHE_TTL_HOURS=24

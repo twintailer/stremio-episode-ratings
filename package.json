@@ -1,0 +1,17 @@
+{
+  "name": "stremio-episode-ratings",
+  "version": "1.0.0",
+  "description": "Adds IMDb ratings to individual series episodes in Stremio",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "node-fetch": "^2.7.0",
+    "stremio-addon-sdk": "^1.6.10"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
