@@ -47,12 +47,13 @@ async function enrichMeta(imdbId) {
 
     if (!rating) continue;
 
-    // Enrich title with rating prefix
-    if (video.title) {
-      video.title = `★ ${rating} | ${video.title}`;
-    } else {
-      video.title = `★ ${rating}`;
-    }
+    // Enrich title (use name as fallback since Cinemeta often uses name instead of title)
+    const originalTitle = video.title || video.name || '';
+    const enrichedTitle = originalTitle
+      ? `★ ${rating} | ${originalTitle}`
+      : `★ ${rating}`;
+    video.title = enrichedTitle;
+    video.name = enrichedTitle;
 
     // Enrich overview with rating prefix
     const ratingLine = `⭐ IMDb: ${rating}/10`;
